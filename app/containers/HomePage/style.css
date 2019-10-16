@@ -1,0 +1,117 @@
+*{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.formContainer{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #6F6F6F;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.section{
+  width: 90%;
+  border-bottom: 1px solid #6F6F6F;
+  margin: 10px;
+  padding: 15px;
+}
+
+.textcontainer{
+  border: 1px solid #6F6F6F;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 25px;
+}
+
+.poundBackground{
+  background-image: url("https://image.flaticon.com/icons/svg/33/33917.svg");
+  background-repeat: no-repeat;
+  background-position: 5px 10px;
+  background-size: 15px 15px;
+}
+
+.fees{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mediaType{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.postContainer{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.dropdown{
+  margin: 10px;
+  min-width: 200px;
+}
+
+.add{
+  margin: 10px;
+}
+
+.other{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkBox{
+  width: 250px;
+  margin: 10px;
+}
+
+.box{
+  margin: 5px;
+}
+
+button{
+  cursor: pointer;
+}
+
+.postButton{
+  border: none;
+  background-color: none;
+  color: #DC143C;
+}
+
+.buttons{
+  align-self: flex-end;
+  margin: 30px;
+}
+
+.cancel{
+  border: none;
+  background-color: none;
+  margin: 5px;
+  padding: 5px;
+}
+
+.submit{
+  border: 1px solid #DC143C;
+  border-radius: 5px;
+  background-color: #DC143C;
+  color: #FFFFFF;
+  margin: 5px;
+  padding: 5px;
+}

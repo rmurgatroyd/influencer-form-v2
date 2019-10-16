@@ -1,18 +1,10 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- */
-
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import SelectingFormValuesForm from './Form.js'
 
-export default function HomePage() {
+export const HomePage = () => {
   return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
+    <SelectingFormValuesForm />
   );
 }
+
+export default HomePage
