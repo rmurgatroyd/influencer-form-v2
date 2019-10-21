@@ -1,12 +1,12 @@
 import React from 'react';
-export const Text = ({ label, input }) => {
+export const Text = ({ label, input, className, placeholder }) => {
   return (
     <div>
       <div>
         {label}
       </div>
       <div>
-        <input {...input} placeholder={label} type="text" className="textcontainer poundBackground" />
+        <input {...input} placeholder={placeholder} type="text" className={className} />
 
       </div>
     </div>

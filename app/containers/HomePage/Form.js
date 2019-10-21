@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 
 
 let SelectingFormValuesForm = (props) => {
-    const { handleSubmit, pristine, reset, submitting, usageFee, influencerFee, total } = props
+    const { handleSubmit, pristine, reset, submitting, usageFee, influencerFee, total, formValues, otherDeliverable} = props
   const onSubmit = (formValues) => {
     console.log('submitting Form: ', formValues);
   }
@@ -24,6 +24,8 @@ let SelectingFormValuesForm = (props) => {
       total={total}
       influencerFee = {influencerFee}
       usageFee = {usageFee}
+      formValues={formValues}
+      otherDeliverable={otherDeliverable}
     />
   </div>
   );
@@ -37,16 +39,18 @@ SelectingFormValuesForm = connect(state => {
   const influencerFee = selector(state, 'influencerFee') || 0
   const usageFee = selector(state, 'usageFee') || 0
   const total = "£ " + (Number(influencerFee) + Number(usageFee))
+  const otherDeliverable = selector(state, 'otherDeliverable')
   // or together as a group
   return {
     influencerFee,
     usageFee,
-    total
+    total,
+    otherDeliverable
   }
 })(SelectingFormValuesForm)
 
 SelectingFormValuesForm = reduxForm({
-  form: 'influencerForm'
+  form: 'influencerForm',
 })(SelectingFormValuesForm)
 
 export default SelectingFormValuesForm

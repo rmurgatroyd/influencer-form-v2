@@ -1,12 +1,13 @@
 import React from 'react'
-import { Field, FieldArray, reduxForm } from 'redux-form'
+import { Field, FieldArray, FormSection, reduxForm } from 'redux-form'
 import Text from 'components/TextComponent'
 import renderPosts from 'components/PostsComponent'
+import Checkbox from 'components/CheckboxComponent'
 
 
 
 export const FormComponent = (props) => {
-  const { handleSubmit, pristine, reset, submitting, influencerName, total } = props
+  const { handleSubmit, pristine, reset, submitting, influencerName, total, formValues, otherDeliverable } = props
   return (
     <form className="formContainer" onSubmit={handleSubmit}>
       <div className="section">
@@ -19,7 +20,8 @@ export const FormComponent = (props) => {
             <Field
             name={`influencerFee`}
             type="text"
-            component={Text}/>
+            component={Text}
+          className="textcontainer poundBackground"/>
           </div>
           <h2>Usage fee</h2>
           <div className="fees">
@@ -27,13 +29,14 @@ export const FormComponent = (props) => {
             <Field
             name={`usageFee`}
             type="text"
-            component={Text}/>
+            component={Text}
+          className="textcontainer poundBackground"/>
           </div>
         <div>
           <h2>Total fee:{total}</h2>
         </div>
       </div>
-      <div className="section">
+      <FormSection name="deliverables" className="section">
         <h2>Social Deliverables</h2>
         <h3>What posts have you asked {influencerName.split(' ').shift()} to do?</h3>
         <div>
@@ -48,6 +51,51 @@ export const FormComponent = (props) => {
           <h4>FACEBOOK</h4>
           <FieldArray name="facebook" component={renderPosts}/>
         </div>
+      </FormSection>
+      <div className="section">
+        <div className="other">
+        <Field
+          component={Checkbox}
+          label="Event"
+          value="event"
+          name="event"/>
+        <Field
+          component={Checkbox}
+          label="Influencer blog content"
+          value="influencerBlogContent"
+          name="influencerBlogContent"/>
+        <Field
+          component={Checkbox}
+          label="Brand website content"
+          value="brandWebsiteContent"
+          name="brandWebsiteContent"/>
+        <Field
+          component={Checkbox}
+          label="Newsletter"
+          value="newsletter"
+          name="newsletter"/>
+        <Field
+          component={Checkbox}
+          label="In-store appearance"
+          value="inStoreAppearance"
+          name="inStoreAppearance"/>
+        <Field
+          component={Checkbox}
+          label="Other"
+          value="otherDeliverable"
+          name={`otherDeliverable`}/>
+        </div>
+          {otherDeliverable ?
+            (
+              <Field
+                component={Text}
+                name="otherPaidContent"
+              type="text"
+              className="othertextcontainer"
+              placeholder="Other paid content"
+            />
+            ) : ''
+      }
       </div>
       <div className="buttons">
         <button className = "cancel" type="button" disabled={pristine || submitting} onClick={reset}>Cancel</button>
