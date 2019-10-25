@@ -3,11 +3,13 @@ import { Field, FieldArray, FormSection, reduxForm } from 'redux-form'
 import Text from 'components/TextComponent'
 import renderPosts from 'components/PostsComponent'
 import Checkbox from 'components/CheckboxComponent'
+import { validate } from '../containers/HomePage/validate.js'
+
 
 
 
 export const FormComponent = (props) => {
-  const { handleSubmit, pristine, reset, submitting, influencerName, total, formValues, otherDeliverable } = props
+  const { handleSubmit, pristine, reset, submitting, influencerName, total, formValues, otherDeliverable, validate } = props
   return (
     <form className="formContainer" onSubmit={handleSubmit}>
       <div className="section">
@@ -21,7 +23,8 @@ export const FormComponent = (props) => {
             name={`influencerFee`}
             type="text"
             component={Text}
-          className="textcontainer poundBackground"/>
+          className="textcontainer poundBackground"
+        />
           </div>
           <h2>Usage fee</h2>
           <div className="fees">
@@ -36,7 +39,7 @@ export const FormComponent = (props) => {
           <h2>Total fee:{total}</h2>
         </div>
       </div>
-      <FormSection name="deliverables" className="section">
+      <div className="section">
         <h2>Social Deliverables</h2>
         <h3>What posts have you asked {influencerName.split(' ').shift()} to do?</h3>
         <div>
@@ -51,7 +54,7 @@ export const FormComponent = (props) => {
           <h4>FACEBOOK</h4>
           <FieldArray name="facebook" component={renderPosts}/>
         </div>
-      </FormSection>
+      </div>
       <div className="section">
         <div className="other">
         <Field

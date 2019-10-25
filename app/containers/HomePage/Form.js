@@ -4,6 +4,7 @@ import FormComponent from 'components/FormComponent';
 import 'react-widgets/dist/css/react-widgets.css'
 import './style.css'
 import { connect } from 'react-redux'
+import { validate } from './validate'
 
 
 
@@ -51,6 +52,7 @@ SelectingFormValuesForm = connect(state => {
 
 SelectingFormValuesForm = reduxForm({
   form: 'influencerForm',
+  validate
 })(SelectingFormValuesForm)
 
 export default SelectingFormValuesForm

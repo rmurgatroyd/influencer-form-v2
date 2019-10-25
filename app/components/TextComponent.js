@@ -1,5 +1,7 @@
 import React from 'react';
-export const Text = ({ label, input, className, placeholder }) => {
+import { validate } from '../containers/HomePage/validate.js'
+
+export const Text = ({ label, input, className, placeholder, meta:{error, touched} }) => {
   return (
     <div>
       <div>
@@ -7,7 +9,11 @@ export const Text = ({ label, input, className, placeholder }) => {
       </div>
       <div>
         <input {...input} placeholder={placeholder} type="text" className={className} />
-
+        {touched && (error && (
+          <div>
+            {error}
+          </div>
+        ))}
       </div>
     </div>
   );
